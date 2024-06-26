@@ -1,0 +1,26 @@
+/**
+ * @param codepointIntervals
+ * @see https://www.geeksforgeeks.org/merging-intervals/
+ */
+export function mergeIntervals(codepointIntervals) {
+    const intervals = Array.from(codepointIntervals);
+    /* Sort intervals in increasing order of start time */
+    intervals.sort((a, b) => a.start - b.start);
+    /* Stores index of last element in output array (modified intervals[]) */
+    let p = 0;
+    for (let c = 1; c < intervals.length; c++) {
+        const previous = intervals[p];
+        const current = intervals[c];
+        const overlaps = previous.end >= current.start;
+        if (overlaps) {
+            previous.end = Math.max(previous.end, current.end);
+        }
+        else {
+            p++;
+            intervals[p] = current;
+        }
+    }
+    /* intervals[0 .. p - 1] stores the merged intervals */
+    return intervals.slice(0, p + 1);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWVyZ2VJbnRlcnZhbHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtZXJnZUludGVydmFscy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsY0FBYyxDQUFDLGtCQUE0QztJQUN2RSxNQUFNLFNBQVMsR0FBRyxLQUFLLENBQUMsSUFBSSxDQUFDLGtCQUFrQixDQUFDLENBQUM7SUFFakQsc0RBQXNEO0lBQ3RELFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsS0FBSyxHQUFHLENBQUMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUU1Qyx5RUFBeUU7SUFDekUsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBRVYsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLFNBQVMsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDdkMsTUFBTSxRQUFRLEdBQUcsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQzlCLE1BQU0sT0FBTyxHQUFHLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQztRQUU3QixNQUFNLFFBQVEsR0FBRyxRQUFRLENBQUMsR0FBRyxJQUFJLE9BQU8sQ0FBQyxLQUFLLENBQUM7UUFFL0MsSUFBSSxRQUFRLEVBQUU7WUFDVixRQUFRLENBQUMsR0FBRyxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsUUFBUSxDQUFDLEdBQUcsRUFBRSxPQUFPLENBQUMsR0FBRyxDQUFDLENBQUM7U0FDdEQ7YUFBTTtZQUNILENBQUMsRUFBRSxDQUFDO1lBQ0osU0FBUyxDQUFDLENBQUMsQ0FBQyxHQUFHLE9BQU8sQ0FBQztTQUMxQjtLQUNKO0lBRUQsdURBQXVEO0lBQ3ZELE9BQU8sU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0FBQ3JDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvZGVwb2ludEludGVydmFsfSBmcm9tIFwiLi4vdHlwZXMvY29kZXBvaW50L2NvZGVwb2ludEludGVydmFsXCI7XG5cbi8qKlxuICogQHBhcmFtIGNvZGVwb2ludEludGVydmFsc1xuICogQHNlZSBodHRwczovL3d3dy5nZWVrc2ZvcmdlZWtzLm9yZy9tZXJnaW5nLWludGVydmFscy9cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIG1lcmdlSW50ZXJ2YWxzKGNvZGVwb2ludEludGVydmFsczogQXJyYXk8Q29kZXBvaW50SW50ZXJ2YWw+KTogQXJyYXk8Q29kZXBvaW50SW50ZXJ2YWw+IHtcbiAgICBjb25zdCBpbnRlcnZhbHMgPSBBcnJheS5mcm9tKGNvZGVwb2ludEludGVydmFscyk7XG5cbiAgICAvKiBTb3J0IGludGVydmFscyBpbiBpbmNyZWFzaW5nIG9yZGVyIG9mIHN0YXJ0IHRpbWUgKi9cbiAgICBpbnRlcnZhbHMuc29ydCgoYSwgYikgPT4gYS5zdGFydCAtIGIuc3RhcnQpO1xuXG4gICAgLyogU3RvcmVzIGluZGV4IG9mIGxhc3QgZWxlbWVudCBpbiBvdXRwdXQgYXJyYXkgKG1vZGlmaWVkIGludGVydmFsc1tdKSAqL1xuICAgIGxldCBwID0gMDtcblxuICAgIGZvciAobGV0IGMgPSAxOyBjIDwgaW50ZXJ2YWxzLmxlbmd0aDsgYysrKSB7XG4gICAgICAgIGNvbnN0IHByZXZpb3VzID0gaW50ZXJ2YWxzW3BdO1xuICAgICAgICBjb25zdCBjdXJyZW50ID0gaW50ZXJ2YWxzW2NdO1xuXG4gICAgICAgIGNvbnN0IG92ZXJsYXBzID0gcHJldmlvdXMuZW5kID49IGN1cnJlbnQuc3RhcnQ7XG5cbiAgICAgICAgaWYgKG92ZXJsYXBzKSB7XG4gICAgICAgICAgICBwcmV2aW91cy5lbmQgPSBNYXRoLm1heChwcmV2aW91cy5lbmQsIGN1cnJlbnQuZW5kKTtcbiAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICAgIHArKztcbiAgICAgICAgICAgIGludGVydmFsc1twXSA9IGN1cnJlbnQ7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAvKiBpbnRlcnZhbHNbMCAuLiBwIC0gMV0gc3RvcmVzIHRoZSBtZXJnZWQgaW50ZXJ2YWxzICovXG4gICAgcmV0dXJuIGludGVydmFscy5zbGljZSgwLCBwICsgMSk7XG59XG4iXX0=

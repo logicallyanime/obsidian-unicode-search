@@ -1,0 +1,12 @@
+import { Order } from "./order";
+export function inverse(order) {
+    switch (order) {
+        case Order.Before:
+            return Order.After;
+        case Order.After:
+            return Order.Before;
+        default:
+            return Order.Equal;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW52ZXJzZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImludmVyc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFDLEtBQUssRUFBQyxNQUFNLFNBQVMsQ0FBQztBQUU5QixNQUFNLFVBQVUsT0FBTyxDQUFDLEtBQVk7SUFDbkMsUUFBUSxLQUFLLEVBQUU7UUFDZCxLQUFLLEtBQUssQ0FBQyxNQUFNO1lBQ2hCLE9BQU8sS0FBSyxDQUFDLEtBQUssQ0FBQztRQUNwQixLQUFLLEtBQUssQ0FBQyxLQUFLO1lBQ2YsT0FBTyxLQUFLLENBQUMsTUFBTSxDQUFDO1FBQ3JCO1lBQ0MsT0FBTyxLQUFLLENBQUMsS0FBSyxDQUFDO0tBQ3BCO0FBQ0YsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7T3JkZXJ9IGZyb20gXCIuL29yZGVyXCI7XG5cbmV4cG9ydCBmdW5jdGlvbiBpbnZlcnNlKG9yZGVyOiBPcmRlcik6IE9yZGVyIHtcblx0c3dpdGNoIChvcmRlcikge1xuXHRcdGNhc2UgT3JkZXIuQmVmb3JlOlxuXHRcdFx0cmV0dXJuIE9yZGVyLkFmdGVyO1xuXHRcdGNhc2UgT3JkZXIuQWZ0ZXI6XG5cdFx0XHRyZXR1cm4gT3JkZXIuQmVmb3JlO1xuXHRcdGRlZmF1bHQ6XG5cdFx0XHRyZXR1cm4gT3JkZXIuRXF1YWw7XG5cdH1cbn1cbiJdfQ==

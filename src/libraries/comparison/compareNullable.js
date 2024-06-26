@@ -1,0 +1,13 @@
+import { Order } from "../order/order";
+export function compareNullable(left, right, compareFn) {
+    if (left == null && right == null) {
+        return Order.Equal;
+    }
+    if (left != null && right != null) {
+        return compareFn(left, right);
+    }
+    return left == null
+        ? Order.After
+        : Order.Before;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29tcGFyZU51bGxhYmxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiY29tcGFyZU51bGxhYmxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBQyxLQUFLLEVBQUMsTUFBTSxnQkFBZ0IsQ0FBQztBQUVyQyxNQUFNLFVBQVUsZUFBZSxDQUM5QixJQUEwQixFQUMxQixLQUEyQixFQUMzQixTQUFnQztJQUVoQyxJQUFJLElBQUksSUFBSSxJQUFJLElBQUksS0FBSyxJQUFJLElBQUksRUFBRTtRQUNsQyxPQUFPLEtBQUssQ0FBQyxLQUFLLENBQUM7S0FDbkI7SUFFRCxJQUFJLElBQUksSUFBSSxJQUFJLElBQUksS0FBSyxJQUFJLElBQUksRUFBRTtRQUNsQyxPQUFPLFNBQVMsQ0FBQyxJQUFJLEVBQUUsS0FBSyxDQUFDLENBQUM7S0FDOUI7SUFFRCxPQUFPLElBQUksSUFBSSxJQUFJO1FBQ2xCLENBQUMsQ0FBQyxLQUFLLENBQUMsS0FBSztRQUNiLENBQUMsQ0FBQyxLQUFLLENBQUMsTUFBTSxDQUFDO0FBQ2pCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge09yZGVyfSBmcm9tIFwiLi4vb3JkZXIvb3JkZXJcIjtcblxuZXhwb3J0IGZ1bmN0aW9uIGNvbXBhcmVOdWxsYWJsZTxUPihcblx0bGVmdDogVCB8IG51bGwgfCB1bmRlZmluZWQsXG5cdHJpZ2h0OiBUIHwgbnVsbCB8IHVuZGVmaW5lZCxcblx0Y29tcGFyZUZuOiAoYTogVCwgYjogVCkgPT4gT3JkZXIsXG4pOiBPcmRlciB7XG5cdGlmIChsZWZ0ID09IG51bGwgJiYgcmlnaHQgPT0gbnVsbCkge1xuXHRcdHJldHVybiBPcmRlci5FcXVhbDtcblx0fVxuXG5cdGlmIChsZWZ0ICE9IG51bGwgJiYgcmlnaHQgIT0gbnVsbCkge1xuXHRcdHJldHVybiBjb21wYXJlRm4obGVmdCwgcmlnaHQpO1xuXHR9XG5cblx0cmV0dXJuIGxlZnQgPT0gbnVsbFxuXHRcdD8gT3JkZXIuQWZ0ZXJcblx0XHQ6IE9yZGVyLkJlZm9yZTtcbn1cbiJdfQ==
